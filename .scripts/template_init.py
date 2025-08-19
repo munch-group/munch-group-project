@@ -12,6 +12,11 @@ Usage:
     python template_init.py [--dry-run]
 """
 
+
+print("THIS SCRIPT USES CLAUDE AND IS NOT REPRODUCIBLE, IT DOES NOT WORK EITHER .... MAKE YOUR OWN")
+
+
+
 import argparse
 import os
 import re
