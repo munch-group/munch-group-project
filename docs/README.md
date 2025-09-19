@@ -1,12 +1,9 @@
 
-Install in development mode. 
 
+Install in to make module available
 
-    conda develop ../conda-build
+    pip install .
 
-
-
-Running the interlinks filter
 First, build the reference for your own site, which includes an objects.json inventory:
 
     python -m quartodoc build
@@ -19,13 +16,6 @@ Finally you should see the filter run when previewing your docs:
 
     quarto preview
 
-
-To render documentation as markdown:
-
-
-    quartodoc build
-
-
 Uninstall 
 
-    conda develop ../conda-build -u
+    pip uninstall munch-group-template
