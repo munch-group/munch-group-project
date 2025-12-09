@@ -51,9 +51,9 @@ def find_and_replace_in_file(file_path: Path, old_hyphen: str, new_hyphen: str,
 
 
 def rename_library(new_name: str):
-    """Rename the library from munch-group-library to the new name."""
-    old_hyphen = "munch-group-library"
-    old_underscore = "munch_group_library"
+    """Rename the library from my-thing to the new name."""
+    old_hyphen = "my-thing"
+    old_underscore = "my_thing"
 
     new_hyphen = new_name
     new_underscore = convert_to_underscore(new_name)
@@ -129,7 +129,7 @@ Examples:
         parser.error("Library name cannot be empty")
 
     # Confirm with user
-    print(f"\nThis will rename 'munch-group-library' to '{new_name}' throughout the project.")
+    print(f"\nThis will rename 'my-thing' to '{new_name}' throughout the project.")
     response = input("Continue? [y/N]: ")
     if response.lower() not in ['y', 'yes']:
         print("Aborted.")

@@ -5,8 +5,6 @@ name = "munch-group-project"
 platforms = ["linux-64", "osx-arm64"]
 version = "0.1.0"
 
-[tasks]
-
 [dependencies]
 git = "*"
 gh = "*"
@@ -22,8 +20,6 @@ statsmodels = "*"
 ipykernel = "*"
 nbconvert = "*"
 
-[tool.pixi.tasks.init]
-args = [
-  { "arg" = "new_name" }
-]
+[tasks.init]
+args = ["new_name"]
 cmd = "python ./scripts/rename.py {{new_name}} && gh repo set-default https://github.com/munch-group/{{new_name}}"
