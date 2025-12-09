@@ -22,3 +22,8 @@ statsmodels = "*"
 ipykernel = "*"
 nbconvert = "*"
 
+[tool.pixi.tasks.init]
+args = [
+  { "arg" = "new_name" }
+]
+cmd = "python ./scripts/rename.py {{new_name}} && gh repo set-default https://github.com/munch-group/{{new_name}}"
