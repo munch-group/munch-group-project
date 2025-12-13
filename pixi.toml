@@ -20,13 +20,16 @@ statsmodels = "*"
 ipykernel = "*"
 jupyter = "*"
 nbconvert = "*"
+vscodenb = "*"
+r-rsvg = "*"
+
 
 [tasks.init]
 args = ["new_name"]
 cmd = "python ./scripts/rename.py {{new_name}} && gh repo set-default https://github.com/munch-group/{{new_name}}"
 
 [tasks.docs]
-cmd = "./scripts/docs-run-notebooks.sh"
+cmd = "./scripts/docs-run-notebooks.sh && git add -u notebooks"
 description = "Run documentation notebooks"
 
 [tasks.clean]

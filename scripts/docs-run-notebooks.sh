@@ -3,8 +3,8 @@
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-if test -d ./docs/pages; then
-  for FILE in docs/pages/*.ipynb ; do
+if test -d ./notebooks; then
+  for FILE in notebooks/*.ipynb ; do
     echo -e "${BLUE}Rendering ${FILE}${NC}"
     CMD="jupyter nbconvert --Application.log_level=50 --to notebook --execute --inplace $FILE"
     echo $CMD
