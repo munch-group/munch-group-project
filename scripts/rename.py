@@ -1,19 +1,10 @@
 #!/usr/bin/env python3
-"""
-Rename the library across the entire project.
-
-Usage:
-    python scripts/rename.py <new-library-name>
-
-Example:
-    python scripts/rename.py my-awesome-library
-"""
 
 import argparse
 import os
 import shutil
 from pathlib import Path
-
+import subprocesss
 
 def convert_to_underscore(name: str) -> str:
     """Convert hyphenated name to underscore format."""
@@ -51,9 +42,9 @@ def find_and_replace_in_file(file_path: Path, old_hyphen: str, new_hyphen: str,
 
 
 def rename_library(new_name: str):
-    """Rename the library from my-thing to the new name."""
-    old_hyphen = "my-thing"
-    old_underscore = "my_thing"
+    """Rename the library from munch-group-library to the new name."""
+    old_hyphen = "munch-group-library"
+    old_underscore = "munch_group_library"
 
     new_hyphen = new_name
     new_underscore = convert_to_underscore(new_name)
@@ -107,29 +98,28 @@ def rename_library(new_name: str):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Rename the library across the entire project",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python scripts/rename.py my-awesome-library
-  python scripts/rename.py data-processing-tools
-        """
-    )
-    parser.add_argument(
-        "new_name",
-        help="The new library name (in hyphenated format, e.g., 'my-library-name')"
-    )
 
-    args = parser.parse_args()
+    git_executable = shutil.which('git')
 
-    # Validate the new name
-    new_name = args.new_name.strip()
+    cmd = 'git rev-parse --show-toplevel'.split()
+    cmd[0] = shutil.which(cmd[0])
+    if not cmd[0]:
+        print('A git executable was not found', file=sys.stderr)
+        sys.exit(1)
+    try:
+        new_name = subprocess.check_output(cmd)
+    except CalledProcessError:
+        print('Could not get repo name using git', file=sys.stderr)
+        sys.exit(1)
+
+    new_name = new_name.strip()
     if not new_name:
-        parser.error("Library name cannot be empty")
+        print("Library name cannot be empty", file=sys.stderr)
+
+    rename_library(new_name)
 
     # Confirm with user
-    print(f"\nThis will rename 'my-thing' to '{new_name}' throughout the project.")
+    print(f"\nThis will rename 'munch-group-library' to '{new_name}' throughout the project.")
     response = input("Continue? [y/N]: ")
     if response.lower() not in ['y', 'yes']:
         print("Aborted.")

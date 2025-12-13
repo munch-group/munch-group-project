@@ -3,7 +3,7 @@
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-if test -d ./notebooks; then
+if test -d ./docs/pages; then
   for FILE in docs/pages/*.ipynb ; do
     echo -e "${BLUE}Rendering ${FILE}${NC}"
     CMD="jupyter nbconvert --Application.log_level=50 --to notebook --execute --inplace $FILE"
@@ -11,6 +11,6 @@ if test -d ./notebooks; then
     NOTEBOOK_THEME=light PYDEVD_DISABLE_FILE_VALIDATION=1 $CMD || exit 1 ;
   done
 else
-  echo "./notebooks directory does not exist"
+  echo "docs/pages directory does not exist"
   exit 1
 fi

@@ -24,3 +24,17 @@ nbconvert = "*"
 [tasks.init]
 args = ["new_name"]
 cmd = "python ./scripts/rename.py {{new_name}} && gh repo set-default https://github.com/munch-group/{{new_name}}"
+
+[tasks.docs]
+cmd = "./scripts/docs-run-notebooks.sh"
+description = "Run documentation notebooks"
+
+[tasks.clean]
+cmd = "git clean -id"
+description = "Removes untracked files and directories but respects your .gitignores"
+
+[tasks.commit]
+depends-on = ["docs", "test"]
+cmd = "./scripts/git-commit.sh"
+description = "Commits with message made by Claude"
+
