@@ -34,7 +34,7 @@ cmd = "git clean -id"
 description = "Removes untracked files and directories but respects your .gitignores"
 
 [tasks.commit]
-depends-on = ["docs", "test"]
+depends-on = ["docs"]
 cmd = "./scripts/git-commit.sh"
 description = "Commits with message made by Claude"
 
