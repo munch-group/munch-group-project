@@ -1,6 +1,3 @@
-claude mcp add pubmed --transport http https://pubmed.mcp.claude.com/mcp
-
-![](https://github.com/munch-group/munch-group-library/actions/workflows/quarto-publish.yml/badge.svg?event=push)
 
 # Template repository for a library project
 
