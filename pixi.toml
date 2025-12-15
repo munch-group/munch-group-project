@@ -25,8 +25,7 @@ r-rsvg = "*"
 
 
 [tasks.init]
-args = ["new_name"]
-cmd = "python ./scripts/rename.py {{new_name}} && gh repo set-default https://github.com/munch-group/{{new_name}}"
+cmd = "python ./scripts/rename.py && gh repo set-default \"https://github.com/munch-group/$(basename `git rev-parse --show-toplevel`)\""
 
 [tasks.docs]
 cmd = "./scripts/docs-run-notebooks.sh && git add -u notebooks"
