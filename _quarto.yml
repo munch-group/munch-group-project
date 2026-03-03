@@ -28,9 +28,9 @@ comments:
 lightbox: true
 
 book:
-  repo-url: "https://github.com/munch-group/projectname"
+  repo-url: "https://github.com/munch-group/munch-group-project"
   repo-actions: [edit, issue, source]  
-  title: "projectname"
+  title: "munch-group-project"
   author: "Joanna Doh"  
   sidebar:
     collapse-level: 1
