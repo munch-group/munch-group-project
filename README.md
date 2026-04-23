@@ -7,7 +7,9 @@
 pixi run init
 ```
 
-## Get updates to upstream fork
+## Incomporate updates changes to upstream fork
+
+If you forked the `munch-group-project` rather than using it as template, you can incorporate changes/fixes made to `munch-group-project`.
 
 Add upstream if not already added
 
